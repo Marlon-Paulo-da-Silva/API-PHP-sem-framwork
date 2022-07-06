@@ -4,11 +4,24 @@ define('API_BASE', 'http://localhost/api-php-sem-framwork/api/?option=');
 
 echo '<p>APLICAÇÃO</p>';
 
-$resultado = api_request('status');
+
+for($i = 0; $i < 10; $i++){
+
+    $resultado = api_request('random');
+    
+    
+    // verificar se a response está ok (success)
+    if($resultado['status'] == 'ERROR'){
+        die('Aconteceu um erro na minha chamada à API');
+    }
+
+    echo "O valor ramdomico é: ".$resultado['data']. "<br />";
+}
+
+echo "Terminado!!";
 
 
-echo '<pre>';
-print_r($resultado);
+
 
 function api_request($option)
 {
