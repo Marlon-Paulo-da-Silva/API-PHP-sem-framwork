@@ -23,6 +23,10 @@ if(isset($_GET['option'])){
 // emitir a resposta da API
 response($data);
 
+
+
+
+// =====================================================
 // construção da response
 function response($data_response){
     header("Content-Type:application/json");
