@@ -2,12 +2,14 @@
 
 define('API_BASE', 'http://localhost/api-php-sem-framwork/api/?option=');
 
+
+
 echo '<p>APLICAÇÃO</p>';
 
 
 for($i = 0; $i < 10; $i++){
 
-    $resultado = api_request('random&min=100&max=200');
+    $resultado = api_request('hash');
     
     
     // verificar se a response está ok (success)
@@ -17,6 +19,10 @@ for($i = 0; $i < 10; $i++){
 
     echo "O valor ramdomico é: ".$resultado['data']. "<br />";
 }
+
+// echo '<pre>';
+
+// print_r(api_request('status'));
 
 echo "Terminado!!";
 

@@ -1,7 +1,10 @@
 <?php
 
+
 // import output.php
 require_once('output.php');
+
+// API routes
 
 // prepara response
 $data['status'] = 'ERROR';
@@ -12,29 +15,18 @@ if(isset($_GET['option'])){
 
     switch($_GET['option']){
         case 'status':
-            define_response($data, 'API OK');
+            api_status($data);
+            
             break;
         
         case 'random':
-            $min = 0;
-            $max = 1000;
-
-            /*
-                Verifica se vem min e / ou max no GET
-            */
-            if(isset($_GET['min'])){
-                $min = intval($_GET['min']);
-            }
+            api_random($data);
             
-            if(isset($_GET['max'])){
-                $max = intval($_GET['max']);
-            }
-
-            if($min >= $max){
-                response($data);
-            }
-
-            define_response($data, rand($min, $max));
+            break;
+        
+        case 'hash':
+            api_hash($data);
+            
             break;
             
     }
